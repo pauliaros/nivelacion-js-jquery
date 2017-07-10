@@ -1,25 +1,31 @@
 $(document).ready( function(){
 	$(".js-back").hide();
 
-});
+
 
 	$(function(printNews){
 		$("#noticias").append("NUEVAS RECETAS");
-	});
-
-
+	})
 	//La variable "recipesArray" esta declarada en el archivo "data/recipes.js"
 	renderHighlightedRecipes(recipesArray);
 
 
-
+});
 
 /*
 * Función que se encarga de pintar TODAS las recetas que tengan 
 * marcado el atributo "highlighted" como TRUE
 */
 function renderHighlightedRecipes(recipesArray) {
-	console.log('Recipes: ', recipesArray);
+
+	var arr = recipesArray.forEach(function(e){ // forEach para que recorra
+		var param = e.highlighted;
+
+		if(param == true){
+			return renderRecipe();
+		}
+	})
+		console.log('Recipes: ', recipesArray);
 }
 
 /*
